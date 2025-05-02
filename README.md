@@ -58,7 +58,6 @@ Server = "DESKTOP-YourName\\SQLInstance"  # Replace with your server
 Then run 
 Use the “Plots” tab to view graphs
 
-![image](https://github.com/user-attachments/assets/0968c0aa-d507-4869-be98-f1556a7e07b8)
 
 
 
