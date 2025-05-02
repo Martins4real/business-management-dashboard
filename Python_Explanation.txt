@@ -1,0 +1,22 @@
+Python Script Explanation - business_dashboard.py
+
+This Python script creates a desktop app using Tkinter. It connects to the BusinessManagementDB and allows you to:
+
+1. View Tables
+   - Vendors: Shows names and locations
+   - Customers: Shows customer contact info
+   - Sales: Shows sale dates and totals
+   - Invoices: Lists unpaid or paid invoice totals
+
+2. Add Records
+   - Customers: Add a new customer by name, address, state
+   - Sales: Add a sale by linking a customer, vendor, and employee
+   - Invoices: Add new invoice entries with vendor and amount
+
+3. Uses:
+   - pyodbc to connect to SQL Server
+   - tkinter for GUI layout
+   - simpledialog to collect user input
+   - messagebox for popups and errors
+
+This app proves you can build real user interfaces that connect to live databases and perform inserts, views, and error handling.

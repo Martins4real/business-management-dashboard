@@ -1,0 +1,75 @@
+BusinessManagementDB - SQL Portfolio Overview + Key Queries
+
+
+What this SQL database is about:
+This is a full business management system used to simulate a real company’s operational data. It tracks vendors, customers, employees, sales, accounts, and invoices. 
+It’s useful for analyzing business performance across regions, time, and departments.
+
+This system is meant for analysis, reporting, and automation. It powers a Python GUI and an R dashboard.
+
+
+Table Explanations:
+
+Vendors – Stores all business partners the company works with (e.g., suppliers or B2B service providers). Important for financials and vendor performance analysis.
+
+Customers – Tracks customer names, locations, and contact info. Critical for targeting, marketing, and sales analysis.
+
+CustomerAccounts – Monitors the outstanding balance of each customer. Used by accounting or finance to track payments due.
+
+Employees – Stores sales reps and team members. Linked to each sale to see who generated revenue.
+
+Sales – Records each transaction, including who sold what, when, to whom, and for how much. Central to business performance.
+
+SaleItems – Itemized breakdown of each sale. Shows what was sold in each transaction.
+
+GLAccounts – General Ledger Accounts for basic financial structure like cash, revenue, expenses.
+
+Terms – Defines when vendors expect payment (Net 30, Net 60, etc).
+
+Invoices – Tracks payment obligations to vendors. Used for cash flow, planning, and historical payment records.
+
+
+Key SQL Queries
+
+-- 1. Sales by State (JOIN + GROUP BY)
+SELECT c.State, SUM(s.TotalAmount) AS TotalRevenue
+FROM Sales s
+JOIN Customers c ON s.CustomerID = c.CustomerID
+GROUP BY c.State
+ORDER BY TotalRevenue DESC;
+
+-- 2. Top Performing Employees (JOIN + GROUP BY + HAVING)
+SELECT e.FirstName + ' ' + e.LastName AS Employee, COUNT(s.SaleID) AS SalesMade, SUM(s.TotalAmount) AS TotalRevenue
+FROM Sales s
+JOIN Employees e ON s.EmployeeID = e.EmployeeID
+GROUP BY e.FirstName, e.LastName
+HAVING SUM(s.TotalAmount) > 1000
+ORDER BY TotalRevenue DESC;
+
+-- 3. Vendor Sales Performance (JOIN + GROUP BY)
+SELECT v.VendorName, COUNT(s.SaleID) AS TotalSales, SUM(s.TotalAmount) AS TotalRevenue
+FROM Sales s
+JOIN Vendors v ON s.VendorID = v.VendorID
+GROUP BY v.VendorName
+ORDER BY TotalRevenue DESC;
+
+-- 4. Sales by Month and State (GROUP BY DATE)
+SELECT 
+  FORMAT(s.SaleDate, 'yyyy-MM') AS SaleMonth,
+  c.State,
+  SUM(s.TotalAmount) AS MonthlyRevenue
+FROM Sales s
+JOIN Customers c ON s.CustomerID = c.CustomerID
+GROUP BY FORMAT(s.SaleDate, 'yyyy-MM'), c.State
+ORDER BY SaleMonth, c.State;
+
+-- 5. Customers With Outstanding Balances
+SELECT c.FirstName, c.LastName, a.Balance
+FROM CustomerAccounts a
+JOIN Customers c ON a.CustomerID = c.CustomerID
+WHERE a.Balance > 0
+ORDER BY a.Balance DESC;
+
+
+The database gives a strong base for a Python interface and R visualization tools.
+It shows you know how to build real data systems, query them, and make business decisions based on facts.

@@ -1,0 +1,41 @@
+R Script Explanation - business_analytics.R
+
+
+This script connects to the BusinessManagementDB SQL Server database and generates business insight visualizations.
+
+It uses:
+- `DBI` + `odbc` to connect to the database
+- `dplyr` for data manipulation
+- `ggplot2` for plotting
+- `lubridate` for date handling (optional)
+
+What Each Section Does:
+
+1. Total Revenue by State:
+   - Groups sales by customer state
+   - Displays a bar chart of total revenue per state
+   - Helps identify strong or weak sales regions
+
+2. Monthly Revenue Trend:
+   - Aggregates total revenue per month (formatted as YYYY-MM)
+   - Line plot shows how sales change over time
+   - Helps spot seasonal trends or growth spikes
+
+3. Top Vendors by Revenue:
+   - Joins Vendors and Sales tables
+   - Ranks vendors by total revenue
+   - Bar chart makes it easy to compare vendor performance
+
+4. Scatter Plot - Customer Balance vs Sale Amount:
+   - Joins CustomerAccounts and Sales
+   - Plots customer balance on the X-axis and sale total on the Y-axis
+   - Useful for analyzing spending behavior vs. account debt
+
+5. Underperforming States:
+   - Flags any states with less than $500 in revenue
+   - Text-only output that can guide business recommendations
+
+How to Use:
+- Open the script in RStudio
+- Run one section at a time to explore specific plots
+- Use the "Plots" tab in RStudio to view/flip between graphs
