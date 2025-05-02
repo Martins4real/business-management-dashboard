@@ -6,7 +6,6 @@
 - Python 3.10 (Tkinter + pyodbc)
 - R + RStudio (ggplot2, DBI, dplyr)
 
-
 ##  What It Does
 
 This project simulates a real business environment by tracking:
@@ -21,7 +20,6 @@ I designed:
 - A Python GUI (`business_dashboard.py`) that interacts with the database
 - An R analytics dashboard (`business_analytics.R`) that turns data into charts and insights
 
-
 ##  File Guide
 
 | File | Purpose |
@@ -29,11 +27,12 @@ I designed:
 | `BusinessManagementDB.sql` | Creates and seeds the SQL database |
 | `business_dashboard.py` | Desktop GUI for adding/viewing data |
 | `business_analytics.R` | R charts for business insights |
-| `SQL_Portfolio_Description_and_Queries.txt` | SQL explanation + example queries |
+| `SQL_Portfolio_Description.txt` | SQL explanation + example queries |
 | `Rscript_explanation.txt` | What each R plot does |
 | `README.md` | You're reading it! |
 
 ---
+
 ##  How to Run
 
 ### 1. SQL
@@ -43,41 +42,29 @@ Open `BusinessManagementDB.sql` in SSMS and run it.
 ```bash
 pip install pyodbc
 python business_dashboard.py
+```
+
 Before running, open `business_dashboard.py` and make sure this line matches **your local SQL Server instance**:
+
 ```python
 Server = "localhost\SQLEXPRESS"  # Update to match your setup
+```
+
 You can find your exact SQL Server instance name by running this in SSMS:
+
 ```sql
 SELECT @@SERVERNAME;
-then run
+```
 
-### 3. R studio
- Open `business_analytics.R` in RStudio
+Then run
+
+### 3. R Studio
+Open `business_analytics.R` in RStudio
+
 In the R file, make sure to also update your server name:
-Server = "DESKTOP-YourName\\SQLInstance"  # Replace with your server
-Then run 
-Use the “Plots” tab to view graphs
 
+```r
+Server = "DESKTOP-YourName\SQLInstance"  # Replace with your server
+```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-**R**
+Then run. Use the “Plots” tab to view graphs.
