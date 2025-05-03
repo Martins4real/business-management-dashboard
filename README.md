@@ -30,6 +30,7 @@ I designed:
 | `SQL_Portfolio_Description.txt` | SQL explanation + example queries |
 | `Rscript_explanation.txt` | What each R plot does |
 | `README.md` | You're reading it! |
+| `Python_Explanation.txt` | what the Python script does |
 
 ---
 
