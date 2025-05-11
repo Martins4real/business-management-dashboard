@@ -1,6 +1,6 @@
 # Business Management Dashboard
  A full-stack business data project using **SQL Server**, **Python**, and **R** to manage, interact with, and visualize business operations.
-
+Link to the Walk Through Video: https://www.youtube.com/results?search_query=how+to+make+timestamps+on+youtube
 ##  Tools Used
 - SQL Server 2019+
 - Python 3.10 (Tkinter + pyodbc)
