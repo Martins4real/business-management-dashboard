@@ -1,6 +1,6 @@
 # Business Management Dashboard
  A full-stack business data project using **SQL Server**, **Python**, and **R** to manage, interact with, and visualize business operations.
- Links: Video Demo https://youtu.be/cA2nOET_Pw8 | Portfolio WebPage https://martinevbayiro4.wixsite.com/martinsevbayiro-1 |
+ Links: Video Demo- https://youtu.be/cA2nOET_Pw8 | Portfolio WebPage- https://martinevbayiro4.wixsite.com/martinsevbayiro-1 |
  
 
 ##  Tools Used
